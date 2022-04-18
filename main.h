@@ -6,26 +6,19 @@
 #include <stdarg.h>
 
 
-/**
- * struct format - Struct for format
- * @specifiers: Struct format
- * @f: The function associated
- */
-
-typedef struct specifiers
-{
-	char specifiers;
-	int (*f)(va_list);
-} specifiers_t;
-
-/*prototypes*/
+int print_char(char c);
+void print_int(va_list arg);
 int _printf(const char *format, ...);
-int get_function(char s, va_list args);
-int _putchar(char c);
 
-/*Conversion specifiers*/
-int print_char(va_list args);
-int print_string(va_list args);
-int print_digit(va_list args);
-int print_mod(va_list args);
+/**
+ * struct printTypeStruct - structure definition of a printTypeStruct
+ * @type: type
+ * @printer: function to print
+ */
+typedef struct identifierStruct
+{
+char *indentifier;
+void (*printer)(va_list);
+} identifierStruct;
+
 #endif
